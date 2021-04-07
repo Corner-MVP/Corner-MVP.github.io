@@ -1,316 +1,159 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<!DOCTYPE html><html class="appearance-auto" lang="en"><head><meta charset="UTF-8"><title>Haojen's blog</title><meta name="description" content="May the Force be with you"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Haojen's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Data%20structure%20and%20algorithm"><i class="tag post-item-tag">Data structure and algorithm</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/04/07/Heap-and-heapSort/">Heap and heapSort</a></h2><time class="has-text-grey" datetime="2021-04-07T12:05:48.000Z">2021-04-07</time><p class="is-flex-grow-2 mt-2">DefinitionHeap is a kind of complete binary tree. A complete binary tree is a binary tree in which every level, except maybe last level, is full, and all nodes are as far as left as possible.
+Commonly, there are two kinds of heap, the one is max-heap, and the other is min-heap.
+Max-heap is the heap that parent’s value is greater than their children’s value..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/04/07/Heap-and-heapSort/">Read more</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Data%20structure%20and%20algorithm"><i class="tag post-item-tag">Data structure and algorithm</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/04/07/Stack-and-queue/">Stack and queue</a></h2><time class="has-text-grey" datetime="2021-04-07T12:03:06.000Z">2021-04-07</time><p class="is-flex-grow-2 mt-2">DefinitionStack: Last in, first out (LIFO)
+Queue: First in, first out (FIFO)
+OperationsStack
+push(x): inserts x into a stack.
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+pop(): removes the newest item from a stack.
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Heap-and-heapSort" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/07/Heap-and-heapSort/" class="article-date">
-  <time class="dt-published" datetime="2021-04-07T12:05:48.000Z" itemprop="datePublished">2021-04-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/07/Heap-and-heapSort/">Heap and heapSort</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><p>Heap is a kind of complete binary tree. A complete binary tree is a binary tree in which every level, except maybe last level, is full, and all nodes are as far as left as possible.</p>
-<p>Commonly, there are two kinds of heap, the one is max-heap, and the other is min-heap.</p>
-<p>Max-heap is the heap that parent’s value is greater than their children’s value, and the parent’s value of min-heap is less than their children.</p>
-<h1 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h1><h2 id="Insert-a-node"><a href="#Insert-a-node" class="headerlink" title="Insert a node"></a>Insert a node</h2><ol>
-<li><p>Make a new node in the last level, as far left as possible. If the last level is full, make a new one;</p>
-</li>
-<li><p>If the new one breaks heap property, swap with its parent node;</p>
-</li>
-<li><p>Repeat former two steps until every node is satisfied with heap property;</p>
-</li>
-<li><p>Time complexity <code>O(log H)</code> H is the height of tree</p>
-</li>
-</ol>
-<h2 id="Delete-a-node"><a href="#Delete-a-node" class="headerlink" title="Delete a node"></a>Delete a node</h2><ol>
-<li><p>Remove the root node, and bring the last node (rightmost node in the last level) to the root;</p>
-</li>
-<li><p>If the root breaks heap property, look at its children and swap it with the larger one;</p>
-</li>
-<li><p>Repeat former two steps until no nodes conflict heap property;</p>
-</li>
-<li><p>Time complexity <code>O(log H)</code> H is the height of tree</p>
-</li>
-</ol>
-<h1 id="Implement-Max-heap-with-python"><a href="#Implement-Max-heap-with-python" class="headerlink" title="Implement Max-heap with python"></a>Implement Max-heap with python</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class MaxHeap:</span><br><span class="line">    def __init__(self, maxSize&#x3D;None):</span><br><span class="line">        self.maxSize &#x3D; maxSize</span><br><span class="line">        self.elements &#x3D; []</span><br><span class="line">        self.count &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def addNode(self, value):</span><br><span class="line"></span><br><span class="line">        if self.count &gt; self.maxSize:</span><br><span class="line">            raise Exception(&#39;The heap is full.&#39;)</span><br><span class="line"></span><br><span class="line">        self.elements.append(value)</span><br><span class="line">        self.siftUp(self.count)</span><br><span class="line">        self.count +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    def popNode(self):</span><br><span class="line"></span><br><span class="line">        if self.count &#x3D;&#x3D; 0:</span><br><span class="line">            raise Exception(&#39;The heap is empty.&#39;)</span><br><span class="line"></span><br><span class="line">        value &#x3D; self.elements[0]</span><br><span class="line">        self.count -&#x3D; 1</span><br><span class="line">        self.elements[0] &#x3D; self.elements[self.count]</span><br><span class="line">        self.siftDown(0)</span><br><span class="line">        return value</span><br><span class="line"></span><br><span class="line">    def siftUp(self, index):</span><br><span class="line"></span><br><span class="line">        if index &gt; 0:</span><br><span class="line">            parent &#x3D; (index - 1) &#x2F;&#x2F; 2</span><br><span class="line">            if self.elements[index] &gt; self.elements[parent]:</span><br><span class="line">                self.elements[index], self.elements[parent] &#x3D; self.elements[parent], self.elements[index]</span><br><span class="line">                self.siftUp(parent)</span><br><span class="line"></span><br><span class="line">    def siftDown(self, index):</span><br><span class="line"></span><br><span class="line">        left &#x3D; 2 * index + 1</span><br><span class="line">        right &#x3D; 2 * index + 2</span><br><span class="line">        largest &#x3D; index</span><br><span class="line">        if (left &lt;&#x3D; self.count</span><br><span class="line">                and self.elements[left] &gt;&#x3D; self.elements[largest]</span><br><span class="line">                and self.elements[left] &gt;&#x3D; self.elements[right]):</span><br><span class="line">            largest &#x3D; left</span><br><span class="line"></span><br><span class="line">        elif (right &lt; self.count</span><br><span class="line">              and self.elements[right] &gt;&#x3D; self.elements[largest]):</span><br><span class="line">            largest &#x3D; right</span><br><span class="line"></span><br><span class="line">        if largest !&#x3D; index:</span><br><span class="line">            self.elements[index], self.elements[largest] &#x3D; self.elements[largest], self.elements[index]</span><br><span class="line">            self.siftDown(largest)</span><br></pre></td></tr></table></figure>
-
-<h1 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h1><p>From the above narrate, it is not hard to find no matter max-heap and min-heap, the top of heap is largest or least value of the whole heap, therefore, it</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def heapSort(arr):</span><br><span class="line"></span><br><span class="line">  length &#x3D; len(arr)</span><br><span class="line">  heap &#x3D; MaxHeap(length)</span><br><span class="line"></span><br><span class="line">  for item in arr:</span><br><span class="line">    heap.addNode(item)</span><br><span class="line"></span><br><span class="line">  res &#x3D; []</span><br><span class="line">  count &#x3D; heap.count</span><br><span class="line">  while count &gt; 0:</span><br><span class="line">    node &#x3D; heap.popNode()</span><br><span class="line">    res.insert(0, node)</span><br><span class="line">    count -&#x3D; 1</span><br><span class="line"></span><br><span class="line">  return res</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Time complexity <code>O(N)</code> N is the length of array<br>Space complexity <code>O(N)</code> N is the length of array</p>
-<p>Reference:</p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs97si/03-data-structures.pdf">https://web.stanford.edu/class/cs97si/03-data-structures.pdf</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://python-data-structures-and-algorithms.readthedocs.io/zh/latest/15_%E5%A0%86%E4%B8%8E%E5%A0%86%E6%8E%92%E5%BA%8F/heap_and_heapsort/">https://python-data-structures-and-algorithms.readthedocs.io/zh/latest/15_%E5%A0%86%E4%B8%8E%E5%A0%86%E6%8E%92%E5%BA%8F/heap_and_heapsort/</a></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/07/Heap-and-heapSort/" data-id="ckn7eu2v9000153s64qo34zil" data-title="Heap and heapSort" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-structure-and-algorithm/" rel="tag">Data structure and algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+top(): returns the newest item from a stack.
 
 
+Queue
+Enqueue(x): inserts x into the queue.
 
-  
-    <article id="post-Stack-and-queue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/07/Stack-and-queue/" class="article-date">
-  <time class="dt-published" datetime="2021-04-07T12:03:06.000Z" itemprop="datePublished">2021-04-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/07/Stack-and-queue/">Stack and queue</a>
-    </h1>
-  
+Dequeue(): removes the oldest item from the queue.
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><p><strong>Stack</strong>: Last in, first out (LIFO)</p>
-<p><strong>Queue</strong>: First in, first out (FIFO)</p>
-<h1 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ol>
-<li><p>push(x): inserts x into a stack.</p>
-</li>
-<li><p>pop(): removes the newest item from a stack.</p>
-</li>
-<li><p>top(): returns the newest item from a stack.</p>
-</li>
-</ol>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ol>
-<li><p>Enqueue(x): inserts x into the queue.</p>
-</li>
-<li><p>Dequeue(): removes the oldest item from the queue.</p>
-</li>
-<li><p>Front(): returns the oldest item from the queue.</p>
-</li>
-</ol>
-<h1 id="Implement-with-python"><a href="#Implement-with-python" class="headerlink" title="Implement with python"></a>Implement with python</h1><h2 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Stack:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.stack &#x3D; []</span><br><span class="line"></span><br><span class="line">    def _push(self, value):</span><br><span class="line">        self.stack.append(value)</span><br><span class="line"></span><br><span class="line">    def _pop(self):</span><br><span class="line"></span><br><span class="line">        if not self.stack:</span><br><span class="line">            raise Exception(&#39;The stack is empty.&#39;)</span><br><span class="line">        return self.stack.pop()</span><br><span class="line"></span><br><span class="line">    def _top(self):</span><br><span class="line"></span><br><span class="line">        if not self.stack:</span><br><span class="line">            raise Exception(&#39;The stack is empty.&#39;)</span><br><span class="line">        return self.stack[-1]</span><br></pre></td></tr></table></figure>
+Front(): returns the oldest item from the..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/04/07/Stack-and-queue/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><style>.search-widget .search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--second-text-color);
+}
+.search-widget .search-content {
+    position: absolute;
+    left: 0;
+    top: calc(100% - 3px);
+    z-index: 2;
 
-<h2 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Queue:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.queue &#x3D; []</span><br><span class="line"></span><br><span class="line">    def enqueue(self, value):</span><br><span class="line">        self.queue.append(value)</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line"></span><br><span class="line">        if not self.queue:</span><br><span class="line">            raise Exception(&#39;The queue is empty.&#39;)</span><br><span class="line">        return self.queue.pop(0)</span><br><span class="line"></span><br><span class="line">    def front(self):</span><br><span class="line">        if not self.queue:</span><br><span class="line">            raise Exception(&#39;The queue is empty.&#39;)</span><br><span class="line">        return self.queue[0]</span><br></pre></td></tr></table></figure>
+    width: 100%;
+    height: 0;
+    max-height: 550px;
 
-<p>Reference:</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs97si/03-data-structures.pdf">https://web.stanford.edu/class/cs97si/03-data-structures.pdf</a></li>
-</ol>
+    overflow: auto;
+    box-sizing: border-box;
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/07/Stack-and-queue/" data-id="ckn7eu2v2000053s6hs3lfk3e" data-title="Stack and queue" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-structure-and-algorithm/" rel="tag">Data structure and algorithm</a></li></ul>
+    background: var(--top-bar-bg-color);
+    backdrop-filter: blur(var(--backdropFilter));
+    -webkit-backdrop-filter: blur(var(--backdropFilter));
 
-    </footer>
-  </div>
-  
-</article>
+    border-bottom-left-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius);
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.08);
+}
+</style><main class="aside-card-container search-widget is-relative"><label for="searchInput"><div class="is-flex px-4" id="searchButton"><i class="iconfont icon--search1 mr-1"></i><input class="search-input is-flex-grow-1" id="searchInput" placeholder="Search everything.."></div></label><section class="search-content content" id="searchContent"></section></main><script>var searchDatabase = []
+var searchInputEl = document.getElementById('searchInput')
+var searchButtonEl = document.getElementById('searchButton')
+var searchResultEl = document.getElementById('searchContent')
 
+searchInputEl.oninput = function (evt) {
+    var searchValue = evt.srcElement.value
+    var haveSearchValue = Boolean(searchValue.trim())
+    if (!haveSearchValue) {
+        searchResultEl.style.height = 0
+        searchResultEl.innerHTML = null
+        return
+    }
 
+    var searchResults = searching(searchValue)
 
-  
+    if (searchResults.length > 0) {
+        renderSearchResults(searchResults)
+    }
+}
 
+function renderSearchResults(results) {
+    searchResultEl.innerHTML = null
+    var fragment = document.createDocumentFragment()
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+    results.forEach(function (item) {
+        var link = document.createElement('a')
+        var title = document.createElement('h5')
+        var content = document.createElement('p')
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-and-algorithm/" rel="tag">Data structure and algorithm</a></li></ul>
-    </div>
-  </div>
+        title.className = 'mb-1'
+        title.innerText = item.title
+        content.innerText = item.content
 
+        link.href = item.link
+        link.appendChild(title)
+        link.appendChild(content)
+        link.className = 'p-4 is-block'
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Data-structure-and-algorithm/" style="font-size: 10px;">Data structure and algorithm</a>
-    </div>
-  </div>
+        fragment.appendChild(link)
+    })
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
-    </div>
-  </div>
+    searchResultEl.appendChild(fragment)
+    searchResultEl.style.height = 'auto'
+}
 
+function searching(inputText) {
+    var inputTexts = inputText.split(' ')
+    var searchResults = []
+    inputTexts.forEach(function (searchKey) {
+        var haveSearchValue = Boolean(searchKey.trim())
+        if (!haveSearchValue) return
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/04/07/Heap-and-heapSort/">Heap and heapSort</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/07/Stack-and-queue/">Stack and queue</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+        var key = searchKey.toLowerCase()
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+        for (var entry of searchDatabase) {
+            var title = entry.getElementsByTagName('title')[0].textContent
+            var link = entry.getElementsByTagName('link')[0].getAttribute('href')
+            var contentWithTags = entry.getElementsByTagName('content')[0].textContent
+            var rawContent = contentWithTags.trim().replace(/<[^>]+>/g, '').toLowerCase()
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+            var LENGTH = 80
+            var finalContent = ''
+            var contentLength = rawContent.length
+            var searchResultIdx = rawContent.indexOf(key)
 
+            var startIdx = searchResultIdx - 20,
+                endIdx = startIdx + LENGTH
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+            if (startIdx < 0) {
+                startIdx = 0
+                endIdx = 100
+            }
 
+            endIdx > contentLength && (endIdx = contentLength)
 
+            finalContent = rawContent.substring(startIdx, endIdx)
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+            if (title.indexOf(key) > -1 || searchResultIdx > -1) {
+                searchResults.push({
+                    link: link,
+                    title: title,
+                    content: finalContent
+                })
+            }
+        }
+    })
+    return searchResults
+}
 
+searchButtonEl.onclick = function () {
+    if (searchDatabase.length > 0) return;
 
+    fetch(window.location.href + '/search.xml').then(res => res.text()).then(res => {
+        var domparser = new DOMParser
+        var doc = domparser.parseFromString(res, 'application/xml')
+        searchDatabase = doc.getElementsByTagName('search')[0].children
+    })
+}</script><main class="aside-card-container profile-widget"><!-- todo: 使用取色工具动态阴影--><section class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center"><section class="is-flex is-justify-content-center avatar is-clipped skeleton"><!-- debug images "https://api.ixiaowai.cn/gqapi/gqapi.php"--><img class="js-img-fadeIn" src="/images/avatar.jpg" alt="user avatar"></section><h3 class="user-name">Haojen</h3><blockquote class="has-text-centered is-relative"><span style="margin-bottom: 5px;">May the Force be with you</span></blockquote><address class="has-text-centered has-text-grey"><i class="iconfont icon-location" style="margin-right: 5px;"></i><span class="has-text-grey">In the dust</span></address></section><section class="sns-container is-flex is-justify-content-center is-align-items-center"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/haojen"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section></main><main class="aside-card-container recent-widget"><h3>Recent</h3><ul><li class="is-flex"><!-- change to element replace image placeholder--><img class="js-img-fadeIn" src="https://ui-avatars.com/api/?background=f5f5f5&amp;name=He" alt="cover"><!--else--><!--    div.post-img-placeholder--><section class="is-flex-grow-2"><p class="has-text-weight-semibold" style="line-height: 20px; font-size: 14px"><a href="/2021/04/07/Heap-and-heapSort/">Heap and heapSort</a></p><time class="has-text-weight-semibold has-text-grey" datetime="2021-04-07T12:05:48.000Z">2021-04-07</time></section></li><li class="is-flex"><!-- change to element replace image placeholder--><img class="js-img-fadeIn" src="https://ui-avatars.com/api/?background=f5f5f5&amp;name=St" alt="cover"><!--else--><!--    div.post-img-placeholder--><section class="is-flex-grow-2"><p class="has-text-weight-semibold" style="line-height: 20px; font-size: 14px"><a href="/2021/04/07/Stack-and-queue/">Stack and queue</a></p><time class="has-text-weight-semibold has-text-grey" datetime="2021-04-07T12:03:06.000Z">2021-04-07</time></section></li></ul></main><main class="aside-card-container archives-widget"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li></ul></section></main><main class="aside-card-container tag-widget"><h3>Tags</h3><section><a href="/tags/Data%20structure%20and%20algorithm"><span class="tag post-item-tag" style="margin-bottom: 5px;">Data structure and algorithm</span></a></section></main></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
+window.addEventListener('resize', $claudia.throttle(function () {
+    var images = document.querySelectorAll('.js-img-fadeIn')
 
-<script src="/js/script.js"></script>
+    images.forEach($claudia.blurBackdropImg)
+}, 150))</script></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/haojen"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Haojen 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
+window.addEventListener('resize', $claudia.throttle(function () {
+    var images = document.querySelectorAll('.js-img-fadeIn')
 
-
-
-
-  </div>
-</body>
-</html>
+    images.forEach($claudia.blurBackdropImg)
+}, 150))</script></body></html>
