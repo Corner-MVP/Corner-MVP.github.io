@@ -35,10 +35,43 @@ Front(): returns the oldest item from the.."><meta name="generator" content="Hex
 <li><p>Front(): returns the oldest item from the queue.</p>
 </li>
 </ol>
-<h1 id="Implement-with-python"><a href="#Implement-with-python" class="headerlink" title="Implement with python"></a>Implement with python</h1><h2 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Stack:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.stack = []</span><br><span class="line"></span><br><span class="line">    def _push(self, value):</span><br><span class="line">        self.stack.append(value)</span><br><span class="line"></span><br><span class="line">    def _pop(self):</span><br><span class="line"></span><br><span class="line">        if not self.stack:</span><br><span class="line">            raise Exception('The stack is empty.')</span><br><span class="line">        return self.stack.pop()</span><br><span class="line"></span><br><span class="line">    def _top(self):</span><br><span class="line"></span><br><span class="line">        if not self.stack:</span><br><span class="line">            raise Exception('The stack is empty.')</span><br><span class="line">        return self.stack[-1]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="Implement-with-python"><a href="#Implement-with-python" class="headerlink" title="Implement with python"></a>Implement with python</h1><h2 id="Stack-1"><a href="#Stack-1" class="headerlink" title="Stack"></a>Stack</h2><pre><code class="angular2html">class Stack:
+    def __init__(self):
+        self.stack = []
 
-<h2 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Queue:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.queue = []</span><br><span class="line"></span><br><span class="line">    def enqueue(self, value):</span><br><span class="line">        self.queue.append(value)</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line"></span><br><span class="line">        if not self.queue:</span><br><span class="line">            raise Exception('The queue is empty.')</span><br><span class="line">        return self.queue.pop(0)</span><br><span class="line"></span><br><span class="line">    def front(self):</span><br><span class="line">        if not self.queue:</span><br><span class="line">            raise Exception('The queue is empty.')</span><br><span class="line">        return self.queue[0]</span><br></pre></td></tr></tbody></table></figure>
+    def _push(self, value):
+        self.stack.append(value)
 
+    def _pop(self):
+
+        if not self.stack:
+            raise Exception('The stack is empty.')
+        return self.stack.pop()
+
+    def _top(self):
+
+        if not self.stack:
+            raise Exception('The stack is empty.')
+        return self.stack[-1]
+</code></pre>
+<h2 id="Queue-1"><a href="#Queue-1" class="headerlink" title="Queue"></a>Queue</h2><pre><code class="angular2html">class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, value):
+        self.queue.append(value)
+
+    def dequeue(self):
+
+        if not self.queue:
+            raise Exception('The queue is empty.')
+        return self.queue.pop(0)
+
+    def front(self):
+        if not self.queue:
+            raise Exception('The queue is empty.')
+        return self.queue[0]
+</code></pre>
 <p>Reference:</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs97si/03-data-structures.pdf">https://web.stanford.edu/class/cs97si/03-data-structures.pdf</a></li>
