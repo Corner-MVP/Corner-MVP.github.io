@@ -70,12 +70,10 @@ Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ug
             target = min(dp[p2] * 2, dp[p3] * 3, dp[p5] * 5)
             dp[i] = target
             if target == dp[p2] * 2: p2 += 1
-            elif target == dp[p3] * 3: p3 += 1
-            else: p5 += 1
+            if target == dp[p3] * 3: p3 += 1
+            if target == dp[p5] * 5: p5 += 1
 
         return dp[n]
-
-
 </code></pre>
 <h2 id="313-Super-Ugly-Number">313. Super Ugly Number</h2>
 <hr>
