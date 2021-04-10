@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Ugly Number</title>
+      <link href="2021/04/10/Ugly-Number/"/>
+      <url>2021/04/10/Ugly-Number/</url>
+      
+        <content type="html"><![CDATA[<h1>Definition</h1><hr><p><strong>Ugly number</strong> is a positive number whose prime factors only include 2, 3, and/or 5.</p><h1>Leetcode</h1><h2 id="263-Ugly-Number">263. Ugly Number</h2><p>Description</p><p>Given an integer <code>n</code>, return true if <code>n</code> is an ugly number.</p><p>Input and output</p><pre><code>Input: n = 6Output: trueExplanation: 6 = 2 × 3</code></pre><p>Solution:</p><p>From the ugly number definition, we can know that the ugly number is combined with at most three factros that are 2, 3 and/or 5. Therefore, every ugly number <code>n</code> can be rewrite as $n = 2 ^ {a} + 3 ^ {b} + 5 ^ {c}$ and $a \geq 0, b \geq 0, c \geq 0$.</p><p>In order to judge whether target number is ugly number. We  can divisor 2, 3 and 5 until the number cannot be divisored by 2, 3 and 5. If the remaining number equals to 1, it indicates that the target number is ugly number and vice versa.</p><pre><code>class Solution:    def isUgly(self, n: int) -&gt; bool:        if n &lt;= 0: return False        factors = [2, 3, 5]        for factor in factors:            while n % factor == 0:                n //= factor                return n == 1</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> algorithm </tag>
+            
+            <tag> Leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Sliding window</title>
       <link href="2021/04/08/Sliding-window/"/>
       <url>2021/04/08/Sliding-window/</url>
