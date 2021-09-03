@@ -1,6 +1,6 @@
 ---
-title: Leetcode 19. Remove Nth Node From End of List
-date: 2021-09-02 23:07:08
+title: Leetcode 165. Compare Version Number
+date: 2021-09-03 08:30:43
 tags: 
     - algorithm
     - Leetcode
@@ -8,6 +8,7 @@ tags:
 categories:
     - Data structure and algorithm
 ---
+
 ## Description
 Given two version numbers, `version1` and `version2`, compare them.
 
@@ -23,7 +24,6 @@ To compare version numbers, compare their revisions in **left-to-right order**.
 
 ## Examples
 ### example 1
-![avatar](https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg)
 ```
 Input: version1 = "1.01", version2 = "1.001"
 Output: 0
