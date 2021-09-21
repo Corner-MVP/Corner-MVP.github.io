@@ -1,0 +1,251 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>Sliding window</title><meta name="description" content="Complacency is the enemy of study"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="Sliding Window Algorithm
+
+Sliding window algorithm is a kind of two pointers. This algorithm mostly used in string match.
+template
+
+def slidingWindow(s, t):
+    need, window, valid = {}, {}, 0
+
+    left, right = 0, 0
+    while right &amp;lt; len(s):
+        node = s[right]
+        right += 1
+
+        // update date
+        ...
+
+        while (window needs shri.."><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Steven's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Sliding window</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3><h3 class="is-inline-block"><a href="/resume">resume</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3><h3 class="is-inline-block"><a href="/resume">resume</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Sliding Window Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#template"><span class="toc-text">template</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Notice"><span class="toc-text">Notice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode-76-Minimum-Window-Substring-hard"><span class="toc-text">leetcode 76 Minimum Window Substring (hard)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-2"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode-567-Permutation-in-String-Medium"><span class="toc-text">leetcode 567 Permutation in String (Medium)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Description-2"><span class="toc-text">Description:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-3"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-2"><span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode-438-Find-All-Anagrams-in-a-String-Medium"><span class="toc-text">leetcode 438 Find All Anagrams in a String (Medium)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Description-3"><span class="toc-text">Description:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-4"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-3"><span class="toc-text">Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#leetcode-3-Longest-Substring-Without-Repeating-Characters-Medium"><span class="toc-text">leetcode 3 Longest Substring Without Repeating Characters (Medium)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Description-4"><span class="toc-text">Description:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-5"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-4"><span class="toc-text">Code</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/algorithm"><i class="tag post-item-tag">algorithm</i></a><a href="/tags/Leetcode"><i class="tag post-item-tag">Leetcode</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Sliding window</h1><time class="has-text-grey" datetime="2021-04-08T01:12:39.000Z">2021-04-08</time><article class="mt-2 post-content"><h1>Sliding Window Algorithm</h1>
+<hr>
+<p>Sliding window algorithm is a kind of two pointers. This algorithm mostly used in string match.</p>
+<h2 id="template">template</h2>
+<hr>
+<pre><code>def slidingWindow(s, t):
+    need, window, valid = {}, {}, 0
+
+    left, right = 0, 0
+    while right &lt; len(s):
+        node = s[right]
+        right += 1
+
+        // update date
+        ...
+
+        while (window needs shrink):
+            deleteNode = s[left]
+            left += 1
+
+            // update data
+            ...
+
+</code></pre>
+<h2 id="Notice">Notice</h2>
+<hr>
+<p>There are 4 questions need to be thought in sliding window algorithm</p>
+<ol>
+<li>
+<p>When move <code>right</code> to expand window indicating add characters, which data need to update?</p>
+</li>
+<li>
+<p>Under what conditions, the window should pause to expand, and start to move <code>left</code> to shrink the window?</p>
+</li>
+<li>
+<p>When move <code>left</code>, which means delete characters, which data need to update?</p>
+</li>
+<li>
+<p>Should the result we want be updated when the window is enlarged or when the window is reduced?</p>
+</li>
+</ol>
+<h2 id="Example">Example</h2>
+<hr>
+<h3 id="leetcode-76-Minimum-Window-Substring-hard">leetcode 76 Minimum Window Substring (hard)</h3>
+<h4 id="Description">Description</h4>
+<p>Given two strings <code>s</code> and <code>t</code>, return the minimum window in <code>s</code> which will contain all the characters in <code>t</code>. If there is no such window in <code>s</code> that covers all characters in <code>t</code>, return the empty string <code>"".</code></p>
+<p><strong>Note</strong> that If there is such a window, it is guaranteed that there will always be only one unique minimum window in <code>s</code>.</p>
+<h4 id="Example-2">Example</h4>
+<pre><code>Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+</code></pre>
+<h4 id="Code">Code</h4>
+<pre><code>def minWindow(self, s, t):
+    need, window, valid, length = {}, {}, 0, float('inf')
+
+    for node in t:
+        if node not in need:
+            need[node] = 1
+        else:
+            need[node] += 1
+
+    left, right = 0, 0
+
+    while right &lt; len(s):
+
+        node = s[right]
+        right += 1
+
+        if node in need.keys():
+            if node not in window:
+                window[node] = 1
+            else:
+                window[node] += 1
+
+            if window[node] == need[node]:
+                valid += 1
+
+        while valid == len(need):
+            if right - left &lt; length:
+                start = left
+                length = right - left
+
+            deleteNode = s[left]
+            left += 1
+
+            if deleteNode in need.keys():
+                if window[deleteNode] == need[deleteNode]:
+                    valid -= 1
+                window[deleteNode] -= 1
+
+    return '' if length == float('inf') else s[start: start+length]
+</code></pre>
+<h3 id="leetcode-567-Permutation-in-String-Medium">leetcode 567 Permutation in String (Medium)</h3>
+<h4 id="Description-2">Description:</h4>
+<p>Given two strings <strong>s1</strong> and <strong>s2</strong>, write a function to return true if <strong>s2</strong> contains the permutation of <strong>s1</strong>. In other words, one of the first string’s permutations is the <strong>substring</strong> of the second string.</p>
+<h4 id="Example-3">Example</h4>
+<pre><code>Input: s1 = "ab" s2 = "eidbaooo"
+Output: True
+Explanation: s2 contains one permutation of s1 ("ba").
+</code></pre>
+<h4 id="Code-2">Code</h4>
+<pre><code>
+def checkInclusion(self, s1, s2):
+    need, window, valid, = {}, {}, 0
+
+    for node in s1:
+        if node not in need:
+            need[node] = 1
+        else:
+            need[node] += 1
+
+    left, right = 0, 0
+
+    while right &lt; len(s2):
+        node = s2[right]
+        right += 1
+
+        if node in need.keys():
+            if node not in window:
+                window[node] = 1
+            else:
+                window[node] += 1
+
+            if window[node] == need[node]:
+                valid += 1
+
+        while right - left &gt;= len(s1):
+            if valid == len(need):
+                return True
+
+            deleteNode = s2[left]
+            left += 1
+            if deleteNode in need.keys():
+                if window[deleteNode] == need[deleteNode]:
+                    valid -= 1
+                window[deleteNode] -= 1
+
+    return False
+</code></pre>
+<h3 id="leetcode-438-Find-All-Anagrams-in-a-String-Medium">leetcode 438 Find All Anagrams in a String (Medium)</h3>
+<h4 id="Description-3">Description:</h4>
+<p>Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s.</p>
+<p>Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.</p>
+<p>The order of output does not matter.</p>
+<h4 id="Example-4">Example</h4>
+<pre><code>Input:
+s: "cbaebabacd" p: "abc"
+
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+</code></pre>
+<h4 id="Code-3">Code</h4>
+<pre><code>def findAnagrams(self, s, p):
+
+    need, window, valid, res = {}, {}, 0, []
+
+    for node in p:
+        if node not in need:
+            need[node] = 1
+        else:
+            need[node] += 1
+
+    left, right = 0, 0
+
+    while right &lt; len(s):
+        node = s[right]
+        right += 1
+
+        if node in need.keys():
+            if node not in window:
+                window[node] = 1
+            else:
+                window[node] += 1
+
+            if window[node] == need[node]:
+                valid += 1
+
+        while right - left &gt;= len(p):
+            if valid == len(need):
+                res.append(left)
+
+            deleteNode = s[left]
+            left += 1
+            if deleteNode in need.keys():
+                if window[deleteNode] == need[deleteNode]:
+                    valid -= 1
+                window[deleteNode] -= 1
+
+    return res
+
+</code></pre>
+<h3 id="leetcode-3-Longest-Substring-Without-Repeating-Characters-Medium">leetcode 3 Longest Substring Without Repeating Characters (Medium)</h3>
+<h4 id="Description-4">Description:</h4>
+<p>Given a string s, find the length of the longest substring without repeating characters.</p>
+<h4 id="Example-5">Example</h4>
+<pre><code>Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+</code></pre>
+<h4 id="Code-4">Code</h4>
+<pre><code>def lengthOfLongestSubstring(self, s):
+    if not s: return 0
+
+    left, right, res, window = 0, 0, 0, {}
+
+    while right &lt; len(s):
+        node = s[right]
+        right += 1
+
+        if node not in window:
+            window[node] = 1
+        else:
+            window[node] += 1
+
+        while window[node] &gt; 1:
+            deleteNode = s[left]
+            left += 1
+
+            window[deleteNode] -= 1
+
+        res = max(res, right - left)
+
+    return res
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/04/10/Ugly-Number/" title="Ugly Number"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: Ugly Number</span></a><a class="button is-default" href="/2021/04/07/Heap-and-heapSort/" title="Heap and heapSort"><span class="has-text-weight-semibold">Next: Heap and heapSort</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="Corner-MVP/Corner-MVP.github.io" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com//Corner-MVP"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><a title="linkedin" target="_blank" rel="noopener nofollow" href="//www.linkedin.com/in//in/steven-wang-b234761b3/"><i class="iconfont icon-linkedin"></i></a><!-- 脸书--></section><p><span>Copyright ©</span><span> Steven 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
