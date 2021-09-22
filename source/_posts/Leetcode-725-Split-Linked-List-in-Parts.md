@@ -1,0 +1,140 @@
+---
+title: Leetcode 725. Split Linked List in Parts
+date: 2021-09-22 13:19:53
+tags:
+    - algorithm
+    - Leetcode
+    - Linked-list
+categories:
+    - Data structure adn algorithm
+---
+## Description
+Given the `head` of a singly linked list and an integer `k`, split the linked list into `k` consecutive linked list parts.
+
+The length of each part should be as equal as possible: no two parts should have a size differing by more than one. This may lead to some parts being null.
+**
+The parts should be in the order of occurrence in the input list, and parts occurring earlier should always have a size greater than or equal to parts occurring later.
+
+Return *an array of the* `k` *parts*.
+
+## Examples
+### example 1
+![https://assets.leetcode.com/uploads/2021/06/13/split1-lc.jpg](https://assets.leetcode.com/uploads/2021/06/13/split1-lc.jpg)
+```
+Input: head = [1,2,3], k = 5
+Output: [[1],[2],[3],[],[]]
+Explanation:
+The first element output[0] has output[0].val = 1, output[0].next = null.
+The last element output[4] is null, but its string representation as a ListNode is [].
+```
+
+### example 2
+![https://assets.leetcode.com/uploads/2021/06/13/split2-lc.jpg](https://assets.leetcode.com/uploads/2021/06/13/split2-lc.jpg)
+```
+Input: head = [1,2,3,4,5,6,7,8,9,10], k = 3
+Output: [[1,2,3,4],[5,6,7],[8,9,10]]
+Explanation:
+The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts.
+```
+
+### constraints
+- The number of nodes in the list is in the range `[0, 1000]`.
+- `0 <= Node.val <= 1000`
+- `1 <= k <= 50`
+
+## Idea
+In order to split the linked list, we need to get the length of linked list `length` by traversal at first. 
+
+After getting `length`, {% mathjax %}quotient = \lfloor \frac{length}{k} \rfloor{% endmathjax %} and `remainder = length mod k`. It shows that in k parts, there are `remainder` parts that their length is `quotient + 1` and the remaining's length is `quotient`.
+
+During spliting linked list, start from head node, current node is `curr` and the follow these steps
+
+- take `curr` as head node of current part and store as `start`;
+- calculate current part's length `len`;
+- move `curr` in `len` steps, `curr` is the end node of current part;
+- `curr` need to be splited from origin linked list and store next node as `nxt` before splitting;
+- `next` pointer of `curr` points to `null`;
+- `curr` points to `nxt`
+
+Through above steps, we can get one part from origin linked list and repeat the above operations to get the final result.
+
+
+## Code
+### Python
+```
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def splitListToParts(self, root, k):
+        length, node = 0, root
+        
+        while node:
+            length += 1
+            node = node.next
+        
+        n, remaining = divmod(length, k)
+        
+        # split the linked list
+        res, curr = [], root
+        
+        for i in range(k):
+            head = curr
+            for _ in range(n + (i < remaining) - 1):
+                if curr: curr = curr.next
+            if curr:
+                curr.next, curr = None, curr.next
+            res.append(head)
+        return res
+```
+
+### JavaScript
+```
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode[]}
+ */
+ var splitListToParts = function(head, k) {
+  let length = 0, curr = head;
+  while (curr) {
+      length += 1;
+      curr = curr.next;
+  }
+  
+  let n = Math.floor(length / k), remaining = length % k;
+  
+  const res = []; 
+  curr = head;
+  
+  for (let i = 0; i < k; i++) {
+      const node = curr;
+      const width = n + (i < remaining ? 1 : 0);
+      for (let j = 1; j < width; j++) {
+          if (curr) curr = curr.next;
+      }
+      if (curr) {
+          const next = curr.next;
+          curr.next = null;
+          curr = next;
+      }
+      res.push(node);
+  }
+  
+  return res
+  
+};
+```
+
+## Time and space complexity
+- time complexity: {% mathjax %}O(n){% endmathjax %}, `n` is the length of linked list, there are two traverse to get the length of linked list and split linked list;
+- space complexity: {% mathjax %}O(1){% endmathjax %}.

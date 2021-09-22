@@ -19,5 +19,3 @@ The main value I provide is that I can take a **complex subject** and turn it in
 I love **sharing my knowlege** and like to **teach and mentor developers** while I work on projects. This way the team I am working with will get a bit of my experience transferred to them.
 
 My belief is that I **bring more value** to the product if I teach my ways to the current development team.
-
-My work is at its best in **agile environments**, and with **remtoe teams**. On site is also possible.
