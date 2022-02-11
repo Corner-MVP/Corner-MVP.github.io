@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Standardization of Frontend git commit</title>
+      <link href="2022/02/11/Standardization-of-Frontend-git-commit/"/>
+      <url>2022/02/11/Standardization-of-Frontend-git-commit/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Background">1. Background</h2><p>Since git allows multiple developer to maintain one public repository, however different developers have different code style and commit style. Therefore, a standardize process is required.</p><h2 id="2-Tools">2. Tools</h2><ul><li><code>@commitlint/cli</code> : the cli of <code>commitlint</code></li><li><code>@commitlint/config-conventional</code> : the rule of <code>commitlint</code></li><li><code>husky</code> : prevent git commit that do not meet git commit rules</li></ul><h2 id="3-Install-steps">3. Install steps</h2><ul><li>install dependencies</li></ul><pre><code class="language-bash">npm i husky@4.3.8 - Dnpm install @commitlint/config-conventional --save-devnpm install @commitlint/cli --save-devnpm install @commitlint/parse --save-dev</code></pre><ul><li>update <code>package.json</code></li></ul><pre><code class="language-json">// package.json"husky": {"hooks": {"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"}},</code></pre><ul><li>add configuration file <code>commitlint.config.js</code></li></ul><pre><code class="language-jsx">module.exports = {  extends: [    "@commitlint/config-conventional"  ],  rules: {    'type-enum': [      2,      'always',      [        'feat',      // feature 新功能，新需求 feature        'fix',       // 修复 bug fix bug        'docs',      // 仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等等 edit docs for example README, CHANGELOG, CONTRIBUTE etc.        'style',     // 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑        'refactor',  // 代码重构，没有加新功能或者修复bug        'test',      // 测试用例，包括单元测试、集成测试等        'revert',    // 回滚到上一个版本        'perf',      // 性能优化        'chore',     // 改变构建流程、或者增加依赖库、工具等，包括打包和发布版本        'conflict'   // 解决合并过程中的冲突      ]    ],    'type-case': [0],    'type-empty': [0],    'scope-empty': [0],    'scope-case': [0],    'subject-full-stop': [0, 'never'],    'subject-case': [0, 'never'],    'header-max-length': [0, 'always', 72]  }};</code></pre><ul><li>error example</li></ul><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0fe78710-087d-46be-b1f0-f7ede2faf82a/Untitled.png" alt="faild"></p><ul><li>correct example</li></ul><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8fa3d98d-2268-40fb-b7c4-ac1366f9a078/Untitled.png" alt="correct"></p><h2 id="4-Tips">4. Tips</h2><p>Since the latest version of <code>husky</code> has bug,  <code>husky hooks</code> is not working.  Therefore, it needs to install lower version of <code>husky</code> . Firstly, run <code>git config core.hookspath</code> in command to check whether the return value is blank or not. If the return value is <code>.husky</code> , run <code>git config --unset core.hookspath</code> to delete it. And then uninstall <code>husky</code> and install lower version of <code>husky</code>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Frontend </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Leetcode 430. Flatten a Multilevel Doubly Linked List</title>
       <link href="2021/09/24/Leetcode-430-Flatten-a-Multilevel-Doubly-Linked-List/"/>
       <url>2021/09/24/Leetcode-430-Flatten-a-Multilevel-Doubly-Linked-List/</url>
