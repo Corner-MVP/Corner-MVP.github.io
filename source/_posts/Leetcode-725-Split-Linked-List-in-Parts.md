@@ -6,7 +6,7 @@ tags:
     - Leetcode
     - Linked-list
 categories:
-    - Data structure adn algorithm
+    - Data structure and algorithm
 ---
 ## Description
 Given the `head` of a singly linked list and an integer `k`, split the linked list into `k` consecutive linked list parts.
